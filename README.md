@@ -240,8 +240,11 @@ After code changes have successfully gone through the Pull Request review proces
 3. Install dependencies: ```bundle```
 4. Update ```CHANGELOG.md``` with release notes
 5. Commit & push master to remote and ensure CI builds master successfully
-6. Build the project locally: `gem build acts_as_hashable`
-7. Run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+6. Run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+
+## Code of Conduct
+
+Everyone interacting in this codebase, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/bluemarblepayroll/acts_as_hashable/blob/master/CODE_OF_CONDUCT.md).
 
 ## License
 
