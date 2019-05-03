@@ -9,15 +9,19 @@
 
 module ActsAsHashable
   # This class serves as a singleton that can make mapped acts_as_hashable components.
-  # It is important to note that these components *must* he acts_as_hashable objects.
+  # It is important to note that these components *must* be acts_as_hashable objects.
   # In order to use you just have to subclass this class and implement
-  # and method called 'registry', such as:
+  # a method called 'registry', such as:
   #   def registry
   #     {
   #       'Table': Table,
   #       'Text': Text
   #     }
   #   end
+  # You can also use the 'register' DSL:
+  # register 'some_class_name', SomeClassName
+  # or:
+  # register 'some_class_name', ->(_key) { SomeClassName }
   module Factory
     extend Forwardable
 
