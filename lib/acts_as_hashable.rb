@@ -12,7 +12,6 @@ require 'forwardable'
 require_relative 'acts_as_hashable/factory'
 require_relative 'acts_as_hashable/hash_refinements'
 require_relative 'acts_as_hashable/type_factory'
-require_relative 'acts_as_hashable/utilities'
 require_relative 'acts_as_hashable/hashable'
 
 module ActsAsHashable
