@@ -55,14 +55,18 @@ module ActsAsHashable
       HASHABLE_HYDRATORS.each do |hydrator|
         next unless hydrator[:condition].call(self, object, nullable)
 
-        begin
-          return hydrator[:converter].call(self, object, nullable)
-        rescue ArgumentError
-          raise HydrationError, "#{name} cannot be hydrated using arguments: #{object}"
-        end
+        return hydrate(hydrator, object, nullable)
       end
 
       raise ArgumentError, "Cannot create hashable object with class name: #{object.class.name}"
+    end
+
+    private
+
+    def hydrate(hydrator, object, nullable)
+      hydrator[:converter].call(self, object, nullable)
+    rescue ArgumentError
+      raise HydrationError, "#{name} cannot be hydrated using arguments: #{object}"
     end
   end
 end
