@@ -10,6 +10,8 @@
 require './spec/spec_helper'
 
 describe ActsAsHashable do
+  let(:hydration_error) { ActsAsHashable::Hashable::HydrationError }
+
   context '#make' do
     context 'when passing in unacceptable input' do
       it 'should raise ArgumentError for number' do
@@ -119,7 +121,7 @@ describe ActsAsHashable do
           }
         }
 
-        expect { HeadOfHousehold.make(head_of_household) }.to raise_error(ArgumentError)
+        expect { HeadOfHousehold.make(head_of_household) }.to raise_error(hydration_error)
       end
 
       it 'should raise an ArgumentError for unknown required keyword' do
@@ -135,7 +137,7 @@ describe ActsAsHashable do
           }
         }
 
-        expect { HeadOfHousehold.make(head_of_household) }.to raise_error(ArgumentError)
+        expect { HeadOfHousehold.make(head_of_household) }.to raise_error(hydration_error)
       end
     end
 
@@ -210,7 +212,7 @@ describe ActsAsHashable do
       end
 
       it 'raises ArgumentError when an argument is tried to be passed in' do
-        expect { ClassWithNoArguments.make(something: :else) }.to raise_error(ArgumentError)
+        expect { ClassWithNoArguments.make(something: :else) }.to raise_error(hydration_error)
       end
     end
   end

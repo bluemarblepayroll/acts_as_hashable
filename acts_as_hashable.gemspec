@@ -30,6 +30,8 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = '>= 2.5'
 
+  s.add_dependency('caution', '~>1')
+
   s.add_development_dependency('guard-rspec', '~>4.7')
   s.add_development_dependency('pry')
   s.add_development_dependency('pry-byebug', '~> 3')

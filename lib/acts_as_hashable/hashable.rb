@@ -13,6 +13,8 @@ module ActsAsHashable
   module Hashable
     using HashRefinements
 
+    class HydrationError < Caution::CauseInjectingError; end
+
     HASHABLE_HYDRATORS = [
       {
         condition: ->(_context, object, _nullable) { object.is_a?(Hash) },
@@ -52,7 +54,11 @@ module ActsAsHashable
     def make(object, nullable: true)
       HASHABLE_HYDRATORS.each do |hydrator|
         if hydrator[:condition].call(self, object, nullable)
-          return hydrator[:converter].call(self, object, nullable)
+          begin
+            return hydrator[:converter].call(self, object, nullable)
+          rescue ArgumentError
+            raise HydrationError, "#{self.name} cannot be hydrated using arguments: #{object}"
+          end
         end
       end
 
