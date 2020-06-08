@@ -17,7 +17,13 @@ module ActsAsHashable
       {
         condition: ->(_context, object, _nullable) { object.is_a?(Hash) },
         converter: lambda do |context, object, _nullable|
-          context.new(**(object || {}).symbolize_keys)
+          args = (object || {}).symbolize_keys
+
+          if args.keys.any?
+            context.new(**args)
+          else
+            context.new
+          end
         end
       },
       {

@@ -67,9 +67,7 @@ class ExampleFactory
   type_key :object_type
 
   register 'Person', Person
-
   register 'Pet', Pet
-
   register 'Toy', Toy
 
   # These are examples of registering a proc instead of a class constant.  It
@@ -77,4 +75,8 @@ class ExampleFactory
   register 'Familiy', ->(_key) { Family }
 
   register 'HeadOfHousehold', ->(_key) { HeadOfHousehold }
+end
+
+class ClassWithNoArguments
+  acts_as_hashable
 end
