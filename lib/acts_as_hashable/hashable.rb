@@ -53,12 +53,12 @@ module ActsAsHashable
 
     def make(object, nullable: true)
       HASHABLE_HYDRATORS.each do |hydrator|
-        if hydrator[:condition].call(self, object, nullable)
-          begin
-            return hydrator[:converter].call(self, object, nullable)
-          rescue ArgumentError
-            raise HydrationError, "#{self.name} cannot be hydrated using arguments: #{object}"
-          end
+        next unless hydrator[:condition].call(self, object, nullable)
+
+        begin
+          return hydrator[:converter].call(self, object, nullable)
+        rescue ArgumentError
+          raise HydrationError, "#{name} cannot be hydrated using arguments: #{object}"
         end
       end
 
