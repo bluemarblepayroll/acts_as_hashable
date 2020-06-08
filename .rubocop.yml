@@ -5,7 +5,7 @@ Metrics/BlockLength:
   ExcludedMethods: ['it', 'describe', 'context', 'let', 'specify']
 
 AllCops:
-  TargetRubyVersion: 2.3
+  TargetRubyVersion: 2.5
 
 Style/RescueModifier:
   Enabled: false

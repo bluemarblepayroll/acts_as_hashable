@@ -1,3 +1,7 @@
+# 1.2.0 (une 8th, 2020)
+
+* Bumped minimum Ruby version to >= 2.5
+
 # 1.1.0 (May 3rd, 2019)
 
 * Added acts_as_hashable_factory to dynamically create objects.
