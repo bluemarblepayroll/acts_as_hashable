@@ -8,5 +8,5 @@
 #
 
 module ActsAsHashable
-  VERSION = '1.2.0-alpha'
+  VERSION = '1.2.0-alpha.1'
 end
