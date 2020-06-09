@@ -1,4 +1,4 @@
-# 1.2.0 (une 8th, 2020)
+# 1.2.0 (June 9th, 2020)
 
 * Bumped minimum Ruby version to >= 2.5
 * Do not pass in any constructor arguments unless we have at least one key.
