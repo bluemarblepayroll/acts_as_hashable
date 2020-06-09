@@ -14,7 +14,7 @@ describe ActsAsHashable::Factory do
 
   context 'when hydrating classes argument-less constructors' do
     it 'calls constructor with no arguments' do
-      expect { ExampleFactory.make({ object_type: :class_with_no_arguments }) }.not_to raise_error
+      expect { ExampleFactory.make(object_type: :class_with_no_arguments) }.not_to raise_error
     end
   end
 

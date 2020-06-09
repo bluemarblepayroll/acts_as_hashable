@@ -65,7 +65,6 @@ class ClassWithNoArguments
   acts_as_hashable
 end
 
-
 class ExampleFactory
   acts_as_hashable_factory
 
