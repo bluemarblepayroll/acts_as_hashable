@@ -10,7 +10,7 @@
 module ActsAsHashable
   # This class is responsible for turning strings and symbols into constants.
   # It does not deal with inflection, simply just constant resolution.
-  class ConstantResolver
+  class ConstantResolver # :nodoc: all
     # Only use Module constant resolution if a string or symbol was passed in.
     # Any other type is defined as an acceptable constant and is simply returned.
     def constantize(value)
