@@ -1,4 +1,4 @@
-# 1.3.0 (September 1st, 2020)
+# 1.3.0 (September 5th, 2020)
 
 Additions:
 
